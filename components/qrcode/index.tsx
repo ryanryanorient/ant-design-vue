@@ -6,7 +6,7 @@ import { useLocaleReceiver } from '../locale/LocaleReceiver';
 import { withInstall } from '../_util/type';
 import Spin from '../spin';
 import Button from '../button';
-import { ReloadOutlined } from '@ant-design/icons-vue';
+import { ReloadOutlined, CheckCircleFilled } from '@ant-design/icons-vue';
 import { useToken } from '../theme/internal';
 import { QRCodeCanvas, QRCodeSVG } from './QRCode';
 import warning from '../_util/warning';
@@ -86,6 +86,7 @@ const QRCode = defineComponent({
         >
           {props.status !== 'active' && (
             <div class={`${pre}-mask`}>
+              {props.status === 'success' && <CheckCircleFilled />}
               {props.status === 'loading' && <Spin />}
               {props.status === 'expired' && (
                 <>
